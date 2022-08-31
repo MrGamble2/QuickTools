@@ -13,6 +13,9 @@
             <DataTemplate DataType="{x:Type viewModel:GenerateGuidViewModel}">
                 <view:GenerateGuidView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CapitalizationToolViewModel}">
+                <view:CapitalizationToolView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

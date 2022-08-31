@@ -10,7 +10,9 @@ namespace QuickTools.MVM.ViewModel
     class MainViewModel : ObservableObject
     {
         public RelayCommand GenerateGuidViewCommand { get; set; }
+        public RelayCommand CapitalizationToolViewCommand { get; set; }
         private GenerateGuidViewModel GuidVM;
+        private CapitalizationToolViewModel CapitalizationVM;
         private object currentView;
         public object CurrentView
         {
@@ -24,11 +26,16 @@ namespace QuickTools.MVM.ViewModel
         public MainViewModel()
         {
             GuidVM = new GenerateGuidViewModel();
-            CurrentView = GuidVM;
+            CapitalizationVM = new CapitalizationToolViewModel();
+            currentView = CapitalizationVM;
 
             GenerateGuidViewCommand = new RelayCommand(o =>
             {
                 CurrentView = GuidVM;
+            });
+            CapitalizationToolViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = CapitalizationVM;
             });
         }
     }

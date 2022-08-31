@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="QuickTools.MVM.View.CapitalizationToolView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuickTools.MVM.View" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib" 
+             xmlns:viewmodel="clr-namespace:QuickTools.MVM.ViewModel"
+             xmlns:core="clr-namespace:QuickTools.Core"
+             d:DataContext="{d:DesignInstance Type=viewmodel:CapitalizationToolViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <ComboBox SelectedItem="{Binding SelectedToolOption}" Margin="0,0,0,0" Name="ModifierSelection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" >
+                <ComboBoxItem Content="UPPERCASE" IsSelected="True"></ComboBoxItem>
+                <ComboBoxItem Content="lowercase"></ComboBoxItem>
+                <ComboBoxItem Content="Sentence case"></ComboBoxItem>
+                <ComboBoxItem Content="Capitalized Case"></ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <TextBox 
+            Grid.Row="1"
+            Text="{Binding InputString}"
+            Margin="0,0,5,0"
+            Name="InputTextBox" 
+            />
+        <TextBox 
+            Text="{Binding OutputString}"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5,0,0,0"
+            IsReadOnly="True"
+            Name="OutputTextBox" 
+            />
+    </Grid>
+</UserControl>

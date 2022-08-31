@@ -10,10 +10,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <TextBlock 
             Margin="10,0,0,0" 
             Foreground="White" 
-            Text="Number Of GUIDs To make"/>
+            Text="Number Of GUIDs To make" Grid.ColumnSpan="2"/>
         <TextBox 
             Height="23" 
             Width="145" 
@@ -41,37 +45,24 @@
             </Button.Resources>
             Generate
         </Button>
-        <ItemsControl ItemsSource="{Binding GeneratedGuids}" Margin="20,60,0,0">
-            <ItemsControl.ItemContainerStyle>
-                <Style>
-                    <Setter Property="FrameworkElement.Margin" Value="2"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBox Background="Transparent"
-                     FontSize="15"
-                     Foreground="White" 
-                     BorderThickness="0"
-                     Text="{Binding StringValue}"
-                     IsReadOnly="True" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <!--<TextBox Background="Transparent"
-                     FontSize="15"
-                     Foreground="White" 
-                     BorderThickness="0"
-                     Text="select text..."
-                     IsReadOnly="True" />-->
-        </ItemsControl>
-        <!-- (itemcontrol instead?)<DataGrid 
-            Margin="10,60,250,10" 
-            Background="Transparent" 
-            RowBackground="Transparent"
-            x:Name="GuidGrid" ItemsSource="{Binding}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="GUIDs" Binding="{Binding Guids}"/>
-            </DataGrid.Columns>
-        </DataGrid>-->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding GeneratedGuids}" Margin="20,0,0,0">
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="FrameworkElement.Margin" Value="2"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBox Background="Transparent"
+                         FontSize="15"
+                         Foreground="White" 
+                         BorderThickness="0"
+                         Text="{Binding StringValue}"
+                         IsReadOnly="True" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>

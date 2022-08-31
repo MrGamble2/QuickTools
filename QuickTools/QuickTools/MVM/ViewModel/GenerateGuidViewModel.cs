@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuickTools.MVM.ViewModel
 {
-    class GenerateGuidViewModel : ObservableObject
+    internal class GenerateGuidViewModel : ObservableObject
     {
         private List<ObservableString> generatedGuids;
         private string numberOfGuids;
@@ -21,12 +21,18 @@ namespace QuickTools.MVM.ViewModel
         public string NumberOfGuids
         {
             get { return numberOfGuids; }
-            set { numberOfGuids = value; OnPropertyChanged(); }
+            set {
+                if (Int32.Parse(value) > 100)
+                {
+                    value = "100";
+                }
+                numberOfGuids = value; OnPropertyChanged(); 
+            }
         }
         public GenerateGuidViewModel()
         {
             numberOfGuids = "10";
-
+            generatedGuids = new List<ObservableString>();
             OnClickGenerate = new RelayCommand(o =>
             {
                 //could also parse in setter?
@@ -34,7 +40,7 @@ namespace QuickTools.MVM.ViewModel
                 var numberG = Int32.Parse(NumberOfGuids);
                 for(int i =0; i< numberG; i++)
                 {
-                    temp.Add(new ObservableString(Guid.NewGuid().ToString()));
+                    temp.Add(new ObservableString(Guid.NewGuid().ToString().ToUpper()));
                 }
                 GeneratedGuids = temp;
             });
