@@ -34,12 +34,12 @@ namespace QuickTools.MVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        public string SelectedToolOption
+        public ComboBoxItem SelectedToolOption
         {
-            get => CapModel.ToolOption.ToString();
+            get => CapModel.ToolOption;
             set
             {
-                CapModel.ToolOption = value;
+               CapModel.ToolOption = value;
                 CalculateOutput();
                 OnPropertyChanged();
             } 
@@ -51,7 +51,7 @@ namespace QuickTools.MVM.ViewModel
         }
         public void CalculateOutput()
         {
-            switch (CapModel.ToolOption)
+            switch ((string)CapModel.ToolOption.Content)
             {
                 case "UPPERCASE":
                     OutputString = CapModel.InputString.ToUpper();
@@ -65,7 +65,8 @@ namespace QuickTools.MVM.ViewModel
                     break;
                 case "Capitalized Case":
                     var rexCap = new Regex(@"\s+(.)", RegexOptions.ExplicitCapture);
-                    OutputString = rexCap.Replace(CapModel.InputString, s => s.Value.ToUpper());
+                    var tempString = rexCap.Replace(CapModel.InputString, s => s.Value.ToUpper());
+                    OutputString= tempString[0].ToString().ToUpper() + tempString.Substring(1);
                     break;
 
             }

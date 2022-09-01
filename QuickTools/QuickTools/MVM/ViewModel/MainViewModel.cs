@@ -27,7 +27,7 @@ namespace QuickTools.MVM.ViewModel
         {
             GuidVM = new GenerateGuidViewModel();
             CapitalizationVM = new CapitalizationToolViewModel();
-            currentView = CapitalizationVM;
+            currentView = GuidVM;
 
             GenerateGuidViewCommand = new RelayCommand(o =>
             {

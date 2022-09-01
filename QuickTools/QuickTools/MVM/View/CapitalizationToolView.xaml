@@ -20,7 +20,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid>
-            <ComboBox SelectedItem="{Binding SelectedToolOption}" Margin="0,0,0,0" Name="ModifierSelection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" >
+            <ComboBox Background="#343244" SelectedValue="{Binding Path=SelectedToolOption}" Margin="0,0,0,0" Name="ModifierSelection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" >
                 <ComboBoxItem Content="UPPERCASE" IsSelected="True"></ComboBoxItem>
                 <ComboBoxItem Content="lowercase"></ComboBoxItem>
                 <ComboBoxItem Content="Sentence case"></ComboBoxItem>
@@ -28,12 +28,16 @@
             </ComboBox>
         </Grid>
         <TextBox 
-            Grid.Row="1"
+            Background="#343244"
+            Foreground="White"
             Text="{Binding InputString}"
+            Grid.Row="1"
             Margin="0,0,5,0"
             Name="InputTextBox" 
             />
         <TextBox 
+            Background="#343244"
+            Foreground="White"
             Text="{Binding OutputString}"
             Grid.Row="1"
             Grid.Column="1"

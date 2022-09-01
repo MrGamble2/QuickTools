@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace QuickTools.MVM.Model
 {
@@ -13,7 +14,7 @@ namespace QuickTools.MVM.Model
     {
         private string inputString;
         private string outputString;
-        private string toolOption;
+        private ComboBoxItem toolOption;
         public string InputString
         {
             get => inputString;
@@ -32,7 +33,7 @@ namespace QuickTools.MVM.Model
                 OnPropertyChanged();
             }
         }
-        public string ToolOption
+        public ComboBoxItem ToolOption
         {
             get => toolOption;
             set
@@ -46,7 +47,7 @@ namespace QuickTools.MVM.Model
         {
             inputString = "";
             outputString = "";
-            toolOption = "UPPERCASE";
+            toolOption = new ComboBoxItem();
         }
     }
 }
