@@ -11,8 +11,10 @@ namespace QuickTools.MVM.ViewModel
     {
         public RelayCommand GenerateGuidViewCommand { get; set; }
         public RelayCommand CapitalizationToolViewCommand { get; set; }
+        public RelayCommand FindReplaceViewCommand { get; set; }
         private GenerateGuidViewModel GuidVM;
         private CapitalizationToolViewModel CapitalizationVM;
+        private FindReplaceViewModel FindReplaceVM;
         private object currentView;
         public object CurrentView
         {
@@ -27,6 +29,7 @@ namespace QuickTools.MVM.ViewModel
         {
             GuidVM = new GenerateGuidViewModel();
             CapitalizationVM = new CapitalizationToolViewModel();
+            FindReplaceVM = new FindReplaceViewModel();
             currentView = GuidVM;
 
             GenerateGuidViewCommand = new RelayCommand(o =>
@@ -36,6 +39,10 @@ namespace QuickTools.MVM.ViewModel
             CapitalizationToolViewCommand = new RelayCommand(o =>
             {
                 CurrentView = CapitalizationVM;
+            });
+            FindReplaceViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = FindReplaceVM;
             });
         }
     }

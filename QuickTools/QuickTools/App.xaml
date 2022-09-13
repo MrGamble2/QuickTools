@@ -16,6 +16,9 @@
             <DataTemplate DataType="{x:Type viewModel:CapitalizationToolViewModel}">
                 <view:CapitalizationToolView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FindReplaceViewModel}">
+                <view:FindReplaceView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

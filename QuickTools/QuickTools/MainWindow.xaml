@@ -49,6 +49,7 @@
                              Height="50"
                              Foreground="White"
                              FontSize="20"
+                             Command="{Binding FindReplaceViewCommand}"
                              Style="{StaticResource SideMenuTheme}"/>
                 <RadioButton Content="JSON Parser"
                              Height="50"
